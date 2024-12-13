@@ -83,16 +83,14 @@ p {
 }
 
 #topBar nav>ul {
-    display: flex;
-    justify-content: space-evenly;
-    border: 3px solid blue;
     padding: 0;
-    font-size: 1.15em;
-    margin-block-end: 10px;
+    font-size: 3.3vi;
+    text-align: center;
+    margin: 0 0 10px 0 ;
 }
 
 #topBar nav ul li {
-    border: 5px solid pink;
+    display: inline-block;
 }
 
 header h2 {
@@ -186,6 +184,10 @@ footer div, footer address {
     text-align: center;
 }
 
+#firstScreen section div img {
+    border-radius: 5%;
+}
+
 #firstScreen section h3 {
     font-size: 1.5em;
     margin-block: 20px;
@@ -198,6 +200,8 @@ footer div, footer address {
 #firstScreen section {
     font-size: 1.1em;
     text-align: center;
+    margin: 20px;
+    margin-block-end: 50px;
 }
 
 #firstScreen section a {
@@ -259,10 +263,15 @@ textarea {
     gap: 15px;
 }
 
+#faq h2 {
+    font-size: 3em;
+}
+
 #faq section {
     border: 5px solid var(--primaryColour);
     border-radius: 10px;
     padding: 10px;
+    margin-inline-end: 10px;
     grid-column: span 3;
 }
 
@@ -324,6 +333,13 @@ td:not(:first-of-type) {
 /* end of daycare css */
 
 @media all and (min-width: 500px) {
+    /* top bar css */
+    #topBar nav>ul {
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 1.15em;
+    }
+    
     /* beginning of index css */
     #firstScreen section {
         border: var(--mainBorderThickness) var(--primaryColour);
@@ -349,7 +365,6 @@ td:not(:first-of-type) {
     }
 
     #title {
-        font-size: 3.5em;
         margin-inline-start: 15px;
         margin-block-start: 10px;
     }
