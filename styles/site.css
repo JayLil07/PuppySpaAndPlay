@@ -7,7 +7,7 @@
     --white: #fff;
     --mainBorderThickness: 10px solid;
     --fontFamily: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-} /* declare variables, ADVANCED CSS */
+} /* declare variables */
 
 * {
     box-sizing: border-box;
@@ -60,7 +60,7 @@ p {
 
 .image {
     inline-size: 100%;
-    height: auto;
+    block-size: auto;
 }
 
 .gridByTwo {
@@ -68,7 +68,7 @@ p {
     grid-template-columns: 1fr 1fr;
     align-items: center;
 }
-/* ADVANCED CSS */
+
 .gridByThree {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -85,9 +85,15 @@ p {
 #topBar nav>ul {
     display: flex;
     justify-content: space-evenly;
+    border: 3px solid blue;
+    padding: 0;
     font-size: 1.15em;
     margin-block-end: 10px;
-} /* ADVANCED CSS */
+}
+
+#topBar nav ul li {
+    border: 5px solid pink;
+}
 
 header h2 {
     display: none;
@@ -107,7 +113,6 @@ header h1 {
     color: var(--contrastColour);
 }
 
-/* ADVANCED CSS */
 #topBar nav ul li:nth-of-type(2), #topBar nav ul li:last-of-type {
     display: none;
 }
@@ -118,6 +123,12 @@ header h1 {
 footer {
     background-color: var(--secondaryColour);
     justify-items: center;
+    grid-template-columns: auto 1fr auto;
+}
+
+footer div img {
+    inline-size: 100%;
+    block-size: 100%;
 }
 
 footer nav ul li {
@@ -148,12 +159,11 @@ footer div, footer address {
 
 /* beginning of index css */
 #firstScreen aside {
-    /* ADVANCED CSS */
     background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url('../images/PoolDog.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100%;
+    block-size: 100%;
 
     color: var(--lightColour);
     padding: 30px;
@@ -174,7 +184,6 @@ footer div, footer address {
     font-size: 1.25em;
     grid-column: 2 / 4;
     text-align: center;
-
 }
 
 #firstScreen section h3 {
@@ -187,11 +196,6 @@ footer div, footer address {
 }
 
 #firstScreen section {
-    border: var(--mainBorderThickness) var(--primaryColour);
-    border-radius: 7%;
-    box-shadow: 5px 5px 5px var(--darkColour);
-    padding: 20px;
-    margin: 3em;
     font-size: 1.1em;
     text-align: center;
 }
@@ -235,17 +239,16 @@ input, select, textarea {
     border: 1px solid var(--secondaryColour);
     font-family: var(--fontFamily);
     margin-block-end: 15px;
-    width: 100%;
+    inline-size: 100%;
 }
 
-/* ADVANCED CSS */
 input[type="submit"], input[type="reset"] { 
     border: 2px solid var(--secondaryColour);
     background-color: var(--white);
 }
 
 textarea {
-    min-height: 200px;
+    min-block-size: 200px;
 }
 /* end of contact css */
 
@@ -269,7 +272,7 @@ textarea {
 
 #faq section h4::before {
     content: "Q: ";
-} /* ADVANCED CSS */
+}
 
 #faq section p::before {
     content: "A: ";
@@ -302,7 +305,7 @@ table {
     margin: auto;
     border: solid 2px var(--primaryColour);
     border-collapse: collapse;
-    width: 80%;
+    inline-size: 80%;
     font-size: 1.25em;
 }
 
@@ -320,10 +323,23 @@ td:not(:first-of-type) {
 }
 /* end of daycare css */
 
+@media all and (min-width: 500px) {
+    /* beginning of index css */
+    #firstScreen section {
+        border: var(--mainBorderThickness) var(--primaryColour);
+        border-radius: 7%;
+        box-shadow: 5px 5px 5px var(--darkColour);
+        padding: 20px;
+        margin: 3em;
+    }
+    /* end of index css */
+}
+
+
 @media all and (min-width: 768px) {
 
     /* general css */
-    a:hover { /* ADVANCED CSS */
+    a:hover {
         text-decoration: underline;
         font-style: italic;
     }
@@ -340,7 +356,7 @@ td:not(:first-of-type) {
 
     .image {
         inline-size: calc(40vi - 40px);
-    } /* ADVANCED CSS */
+    }
 
     /* beginning of top bar css */
     .logo {
@@ -366,10 +382,22 @@ td:not(:first-of-type) {
     }
     /* end of top bar css */
 
+
+    /* footer css */
+    footer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    footer div img {
+        inline-size: 200px;
+        block-size: 200px;
+    }
+    /* end of footer css */
+
     
     /* index css */
     #firstScreen aside {
-        height: 100vh;
+        block-size: 100vh;
     }
 
     #firstScreen aside h2 {
@@ -430,7 +458,6 @@ td:not(:first-of-type) {
         align-content: center;
     }
 
-    /* ADVANCED CSS */
     label::after {
         content: ":";
     }
@@ -448,7 +475,6 @@ td:not(:first-of-type) {
         margin-inline-start: 10px;
     }
 
-    /* ADVANCED CSS */
     input[type="reset"]:hover, input[type="submit"]:hover {
         border: 2px solid var(--primaryColour);
     }
