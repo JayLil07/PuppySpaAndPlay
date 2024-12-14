@@ -23,7 +23,7 @@ body {
 a {
     text-decoration: none;
     font-weight: bold;
-    color: var(--darkColour);
+    color: var(--contrastColour);
     padding: 20px;
 }
 
@@ -33,19 +33,27 @@ nav ul {
 
 .button {
     display: inline-block;
-    margin-block: 20px;
+    margin-block: 30px;
+    border: 5px solid var(--contrastColour);
+    border-radius: 70px;
+    padding: 15px;
 }
 
+/* ADVANCED CSS */
 main:not(#firstScreen) {
     margin-inline-start: 2.5vi;
     margin-block-start: 2.5vi;
+}
+
+main a {
+    padding: 0;
 }
 
 #title {
     font-size: 3.5em;
     margin-block-end: 2vi;
     color: var(--contrastColour);
-    grid-column: span 3;
+    grid-column: span 2;
 }
 
 h4 {
@@ -56,6 +64,26 @@ h4 {
 
 p {
     font-size: 1.05em;
+}
+
+table {
+    border: solid 2px var(--primaryColour);
+    border-collapse: collapse;
+    font-size: 1.25em;
+}
+
+td, th {
+    padding: 3px;
+    border: solid 1px var(--primaryColour);
+}
+
+tr:nth-of-type(even) {
+    background-color: var(--white);
+}
+
+/* ADVANCED CSS */
+td:not(:first-of-type) {
+    text-align: center;
 }
 
 .image {
@@ -107,10 +135,6 @@ header h1 {
     align-content: center;
 }
 
-#topBar nav ul li a {
-    color: var(--contrastColour);
-}
-
 #topBar nav ul li:nth-of-type(2), #topBar nav ul li:last-of-type {
     display: none;
 }
@@ -122,6 +146,10 @@ footer {
     background-color: var(--secondaryColour);
     justify-items: center;
     grid-template-columns: auto 1fr auto;
+}
+
+footer a {
+    color: var(--darkColour);
 }
 
 footer div img {
@@ -204,10 +232,9 @@ footer div, footer address {
     margin-block-end: 50px;
 }
 
-#firstScreen section a {
-    border: 5px solid var(--contrastColour);
-    border-radius: 70px;
-    padding: 15px;
+#firstScreen section p a {
+    font-weight: normal;
+    text-decoration: underline;
 }
 
 #firstScreen .gridByTwo {
@@ -229,6 +256,10 @@ footer div, footer address {
 
 #contact section:last-of-type {
     margin: 0 2em 2em 2em;
+}
+
+#contact section img {
+    display: none;
 }
 
 form {
@@ -260,35 +291,50 @@ textarea {
 /* questions css */
 #faq {
     margin-block-end: 3vi;
-    gap: 15px;
+    gap: 15px 50px;
 }
 
 #faq h2 {
     font-size: 3em;
 }
 
+#faq h3 {
+    font-size: 1.3em;
+    padding-block: 10px;
+}
+
+#faq h4 {
+    padding-block-start: 20px;
+}
+
+#faq section ul li {
+	list-style-image: url("../images/DogFace.svg");
+}
+
+#faq section ul li a {
+    font-weight: lighter;
+}
+
+
 #faq section {
+    grid-column: span 2;
+    margin-block-end: 20px;
+}
+
+#faq details {
     border: 5px solid var(--primaryColour);
     border-radius: 10px;
     padding: 10px;
     margin-inline-end: 10px;
-    grid-column: span 3;
+    grid-column: span 2;
 }
 
-#faq section a {
-    padding: 0;
-}
-
-#faq section h4 {
+#faq details summary {
     padding-block-end: 5px;
 }
 
-#faq section h4::before {
+#faq details summary::before {
     content: "Q: ";
-}
-
-#faq section p::before {
-    content: "A: ";
 }
 /* end of questions css */
 
@@ -314,25 +360,9 @@ textarea {
     text-align: center;
 }
 
-table {
+#daycare table {
     margin: auto;
-    border: solid 2px var(--primaryColour);
-    border-collapse: collapse;
     inline-size: 80%;
-    font-size: 1.25em;
-}
-
-td, th {
-    padding: 3px;
-    border: solid 1px var(--primaryColour);
-}
-
-tr:nth-of-type(even) {
-    background-color: var(--white);
-}
-
-td:not(:first-of-type) {
-    text-align: center;
 }
 /* end of daycare css */
 
@@ -461,6 +491,21 @@ td:not(:first-of-type) {
         display: inline;
     }
 
+    #contact section:last-of-type {
+        position: relative;
+    }
+    
+    /* ADVANCED CSS */
+    #contact section img {
+        display: inline-block;
+        min-inline-size: 135px;
+        max-inline-size: 15%;
+        block-size: auto;
+        position: absolute;
+        inset-inline-end: -30px;
+        inset-block-start: 0px;
+    }
+
     form {
         display: grid;
         grid-template-columns: 100px 1fr;
@@ -501,8 +546,14 @@ td:not(:first-of-type) {
 
 
     /* questions css */
+    #faq details {
+        grid-column: 1 / 2;
+    }
+
     #faq section {
-        grid-column: span 1;
+        grid-column: 2 / 3;
+        grid-row: 2 / 11;
+        align-self: start;
     }
     /* end of questions css */
 
