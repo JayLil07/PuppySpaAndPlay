@@ -39,6 +39,11 @@ nav ul {
     padding: 15px;
 }
 
+.aLot {
+    display: grid;
+    gap: 10px;
+}
+
 /* ADVANCED CSS */
 main:not(#firstScreen) {
     margin-inline-start: 2.5vi;
@@ -231,6 +236,7 @@ footer div, footer address {
     text-align: center;
     margin: 20px;
     margin-block-end: 50px;
+    border-block-end: var(--mainBorderThickness) var(--primaryColour);
 }
 
 #firstScreen section p a {
@@ -240,6 +246,50 @@ footer div, footer address {
 
 #firstScreen .gridByTwo {
     gap: 20px;
+}
+
+#testimonials {
+    padding: 10px;
+}
+
+video {
+    inline-size: 100%;
+    block-size: auto;
+}
+
+#firstScreen section:last-of-type div img {
+    inline-size: 100px;
+    block-size: auto;
+    border-radius: 50%;
+    justify-self: center;
+    display: block;
+}
+
+.reviews i {
+    color: var(--contrastColour);
+    font-size: 3em;
+    display: inline-block;
+    padding-inline-end: 10px;
+}
+
+.reviews blockquote {
+    display: inline;
+}
+
+.reviews {
+    font-family:Georgia, "Times New Roman", Times, serif;
+    box-shadow: 0px 0px 5px var(--darkColour);
+    border-radius: 20px;
+    gap: 10px;
+    padding: 20px;
+    margin: 15px;
+}
+
+.reviews span {
+    font-size: 0.9em;
+    color: var(--primaryColour);
+    justify-self: start;
+    display: block;
 }
 /* end of index css */
 
@@ -394,7 +444,7 @@ textarea {
         font-size: 1.15em;
     }
     
-    /* beginning of index css */
+    /* index css */
     #firstScreen section {
         border: var(--mainBorderThickness) var(--primaryColour);
         border-radius: 30px;
@@ -402,7 +452,10 @@ textarea {
         padding: 20px;
         margin: 3em;
     }
-    /* end of index css */
+
+    .reviews span {
+        justify-self: end;
+    }
 
     /* contact css */
     #contact .gridByTwo div {
@@ -430,6 +483,10 @@ textarea {
 
     .image {
         inline-size: calc(40vi - 40px);
+    }
+
+    .aLot {
+        grid-template-columns: 1fr 1fr;
     }
 
     /* beginning of top bar css */
@@ -495,13 +552,32 @@ textarea {
         margin-inline-end: 30px;
     }
 
-    #firstScreen section:last-of-type img {
+    #firstScreen section:nth-of-type(2) img {
         float: right;
         margin-inline-start: 30px;
     }
 
-    #firstScreen section {
+    #firstScreen section, #firstScreen section div img {
         border-radius: 0;
+    }
+
+    .reviews {
+        display: grid;
+        grid-template-columns: auto auto 1fr;
+        align-items: center;
+    }
+
+    .reviews span {
+        grid-column: span 2;
+    }
+
+    .reviews i {
+        padding-inline-end: 0px;
+    }
+
+    .reviews img {
+        grid-row: span 2;
+        align-content: center;
     }
     /* end of index css */
 
@@ -612,4 +688,28 @@ textarea {
         inline-size: calc(40vi - 40px);
     }
     /* end of daycare css */
+}
+
+@media all and (min-width: 1000px) {
+    /* index css */
+    #testimonials {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .reviews:last-of-type {
+        display: none;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    /* index css */
+    .videos {
+        grid-row: span 2;
+    }
+
+    .reviews:last-of-type {
+        display: grid;
+    }
 }
