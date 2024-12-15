@@ -69,6 +69,7 @@ p {
 table {
     border: solid 2px var(--primaryColour);
     border-collapse: collapse;
+    inline-size: 100%;
     font-size: 1.25em;
 }
 
@@ -244,6 +245,10 @@ footer div, footer address {
 
 
 /* contact css */
+#contact {
+    margin: 20px;
+}
+
 #contact a {
     font-weight: normal;
     text-decoration: underline;
@@ -262,19 +267,34 @@ footer div, footer address {
     display: none;
 }
 
+#contact .gridByTwo div {
+    grid-column: span 2;
+}
+
 form {
     padding: 3vi;
     border: var(--mainBorderThickness) var(--primaryColour);
 }
 
-input, select, textarea {
-    block-size: 2.5em;
+input, textarea, fieldset, select {
     border-radius: 7px;
     font-size: 1rem;
     border: 1px solid var(--secondaryColour);
     font-family: var(--fontFamily);
-    margin-block-end: 15px;
+    background-color: var(--white);
+    vertical-align: middle;
+}
+
+input, textarea, select {
+    block-size: 2.5em;
+}
+
+input:not([type="radio"], [type="checkbox"]), textarea, select {
     inline-size: 100%;
+}
+
+input:not([type="radio"], [type="checkbox"]), textarea, fieldset, select {
+    margin-block-end: 15px;
 }
 
 input[type="submit"], input[type="reset"] { 
@@ -377,12 +397,17 @@ textarea {
     /* beginning of index css */
     #firstScreen section {
         border: var(--mainBorderThickness) var(--primaryColour);
-        border-radius: 7%;
+        border-radius: 30px;
         box-shadow: 5px 5px 5px var(--darkColour);
         padding: 20px;
         margin: 3em;
     }
     /* end of index css */
+
+    /* contact css */
+    #contact .gridByTwo div {
+        grid-column: span 1;
+    }
 }
 
 
@@ -508,22 +533,30 @@ textarea {
 
     form {
         display: grid;
-        grid-template-columns: 100px 1fr;
-        row-gap: 15px;
+        grid-template-columns: auto 1fr;
+        row-gap: 10px;
         column-gap: 5px;
     }
 
+    fieldset {
+        grid-column: 2 / 3;
+    }
+
     label {
-        justify-self: end;
+        text-align: end;
     }
 
     /* ADVANCED CSS */
-    label:not(label:last-of-type) {
+    label:not([for="message"]) {
         align-content: center;
     }
-
-    label::after {
+    
+    label:not(fieldset label)::after {
         content: ":";
+    }
+
+    input:not([type="radio"], [type="checkbox"]), textarea, fieldset, select {
+        margin-block-end: 0px;
     }
 
     #actions {
