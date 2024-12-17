@@ -361,6 +361,11 @@ input[type="submit"], input[type="reset"] {
 textarea {
     min-block-size: 200px;
 }
+
+fieldset:first-of-type, fieldset:last-of-type {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 /* end of contact css */
 
 
@@ -385,6 +390,7 @@ textarea {
 
 #faq section ul li {
 	list-style-image: url("../images/DogFace.svg");
+    padding: 5px;
 }
 
 #faq section ul li a {
@@ -449,6 +455,49 @@ textarea {
 }
 /* end of daycare css */
 
+
+/* about css */
+#about section {
+    inline-size: 96%;
+    margin: auto;
+}
+
+#about section h3 {
+    display: inline-block;
+    padding: 25px 10px 15px 0;
+    vertical-align: middle;
+    font-size: 1.3em;
+}
+
+#about section>p {
+    padding-block: 25px;
+    border-block-start: var(--mainBorderThickness) var(--secondaryColour);
+}
+
+.icon {
+    inline-size: 40px;
+    vertical-align: middle;
+}
+
+.staff {
+    border-block-start: var(--mainBorderThickness) var(--secondaryColour);
+    padding: 30px;
+    text-align: center;
+}
+
+.staff h4 {
+    color: var(--contrastColour);
+    font-size: 1.25em;
+}
+
+.staff img {
+    inline-size: 80%;
+    margin-inline: 10%;
+    margin-block: 10px;
+}
+/* end of about css */
+
+
 @media all and (min-width: 500px) {
     /* top bar css */
     #topBar nav>ul {
@@ -482,7 +531,15 @@ textarea {
     /* general css */
     a:hover {
         text-decoration: underline;
-        font-style: italic;
+        color: var(--secondaryColour);
+    }
+
+    footer a:hover {
+        color: var(--primaryColour);
+    }
+
+    .button:hover {
+        border: 5px solid var(--secondaryColour);
     }
 
     main section>div {
@@ -706,6 +763,21 @@ textarea {
         inline-size: calc(40vi - 40px);
     }
     /* end of daycare css */
+
+
+    /* about css */
+    .staff {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+
+    .staff img {
+        grid-row: 1 / 3;
+    }
+
+    .staff h4 {
+        align-self: center;
+    }
 }
 
 @media all and (min-width: 1000px) {
@@ -728,6 +800,11 @@ textarea {
     #daycare img {
         grid-row: 1 / 3;
     }
+
+    /* contact css */
+    fieldset:first-of-type, fieldset:last-of-type {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
 
 @media all and (min-width: 1200px) {
@@ -738,5 +815,23 @@ textarea {
 
     .reviews:last-of-type {
         display: grid;
+    }
+
+    /* about css */
+    #about section:last-of-type {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #about section:last-of-type div:first-of-type{
+        grid-column: span 2;
+        border-block-end: var(--mainBorderThickness) var(--secondaryColour);
+    }
+
+    .staff {
+        border: var(--mainBorderThickness) var(--secondaryColour);
+        border-radius: 30px;
+        box-shadow: 0 0 5px var(--darkColour);
+        margin: 1.5em;
     }
 }
