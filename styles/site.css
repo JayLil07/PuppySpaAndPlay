@@ -32,7 +32,7 @@ nav ul {
 }
 
 .image {
-    inline-size: 100%;
+    inline-size: 300px;
     block-size: auto;
 }
 
@@ -308,6 +308,10 @@ footer div img {
     color: var(--primaryColour);
     justify-self: start;
     display: block;
+}
+
+.reviews img {
+    margin: auto;
 }
 /* end of index css */
 
@@ -718,7 +722,7 @@ dl div {
 
     .reviews img {
         grid-row: span 2;
-        align-content: center;
+        align-self: center;
     }
     /* end of index css */
 
